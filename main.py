@@ -41,6 +41,7 @@ check_for_error(vinfo)
 print("Connected to O*NET Web Services version " + str(vinfo['api_version']))
 print("")
 
+
 def fetch_onet_recommendations(skills: List[str], interests: List[str], user_type: str, move_type: str = None, current_job: str = None, career_field: str = None):
     api_key = os.getenv("API_KEY")
     if not api_key:
@@ -182,6 +183,7 @@ async def get_recommendations(request: CareerRequest):
 
     elif request.user_type == "I have a job but want to move":
         # Placeholder recommendations
+        onet_ws.call('mnm/interestprofiler/questions_30')
         return {
             "recommendations": [
                 {"title": "Project Manager", "description": "Leads teams to meet goals."},
