@@ -1,5 +1,11 @@
 import streamlit as st
 import requests
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+API_KEY = os.getenv("API")
 
 # Configure the backend URL
 BACKEND_URL = "http://127.0.0.1:8000/recommend"
